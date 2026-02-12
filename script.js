@@ -179,19 +179,17 @@ function showModal(title, text, img, bg) {
     const modal = document.getElementById('message-modal');
     const body = document.getElementById('modal-body');
     
-    // Logică pentru fundalul ferestrei care se deschide
-    if (bg) {
-        modal.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${bg}')`;
-        modal.style.backgroundSize = "cover";
-        modal.style.backgroundPosition = "center";
-    } else {
-        // Dacă nu ai pus o poză specifică (bg), revine la fundalul negru
-        modal.style.backgroundImage = "none";
-        modal.style.backgroundColor = "#000";
-    }
-
-    let content = `<h2>${title}</h2><p style="white-space: pre-line; margin-bottom: 20px;">${text}</p>`;
+    // Verificăm dacă există un fundal specific, altfel punem fundalul general
+    const backgroundToShow = bg ? bg : 'valentines.jpg'; 
     
+    modal.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('${backgroundToShow}')`;
+    modal.style.backgroundSize = "cover";
+    modal.style.backgroundPosition = "center";
+    modal.style.backgroundAttachment = "fixed"; // Păstrează fundalul fix ca în restul paginii
+
+    // Restul codului rămâne neschimbat...
+    let content = `<h2>${title}</h2><p style="white-space: pre-line; margin-bottom: 20px;">${text}</p>`;
+
     if (img && img.toLowerCase().endsWith('.mp4')) {
         content += `
             <div style="width: 100%; display: flex; justify-content: center;">
@@ -222,10 +220,4 @@ function launchConfetti() {
     confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#ff0000', '#d4436a', '#ffffff'] });
 }
 
-init()
-// MODIFICĂ ACEASTĂ PARTE:
-setTimeout(() => {
-    // Adăugăm m.bg ca al patrulea argument
-    showModal(m.title, m.text, m.img, m.bg); 
-    this.classList.remove('open');
-}, 1000);
+init();
