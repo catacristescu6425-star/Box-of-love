@@ -22,7 +22,7 @@ const messages = [
             Mă faci să mă simt atât de bine și îmi porți de grijă mereu, demonstrându-mi că distanța nu e un impediment pentru cineva care vrea cu adevărat să fie prezent. Indiferent dacă azi reușești să mă surprinzi și să ne vedem sau dacă rămânem să ne bibilim prin mesaje, tu ești cel care face ca această zi să fie specială.
             Ai apărut întâmplător, în momentul în care nu mai căutam nimic, și ai reușit să-mi „pui capac” într-o clipă. 🥰😂 Acum îți dau teroare cu toate prostiile mele, dar sper că asta să nu fie o problemă prea mare.
             Sper să avem o zi superbă, indiferent de kilometrii care sunt între noi! Te sărut și te îmbrățișez chiar și de la distanță. 🥰💋`, 
-        img: "kiss.jpg" 
+        img: "kiss.jpg"
     },
     { 
         title: "My B-day: 15.02.2026", 
@@ -175,10 +175,21 @@ function init() {
     });
 }
 
-function showModal(title, text, img) {
+function showModal(title, text, img, bg) {
     const modal = document.getElementById('message-modal');
     const body = document.getElementById('modal-body');
     
+    // Logică pentru fundalul ferestrei care se deschide
+    if (bg) {
+        modal.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${bg}')`;
+        modal.style.backgroundSize = "cover";
+        modal.style.backgroundPosition = "center";
+    } else {
+        // Dacă nu ai pus o poză specifică (bg), revine la fundalul negru
+        modal.style.backgroundImage = "none";
+        modal.style.backgroundColor = "#000";
+    }
+
     let content = `<h2>${title}</h2><p style="white-space: pre-line; margin-bottom: 20px;">${text}</p>`;
     
     if (img && img.toLowerCase().endsWith('.mp4')) {
@@ -194,7 +205,6 @@ function showModal(title, text, img) {
     
     body.innerHTML = content;
     modal.style.display = "block";
-
     modal.scrollTop = 0;
 }
 
@@ -212,4 +222,10 @@ function launchConfetti() {
     confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#ff0000', '#d4436a', '#ffffff'] });
 }
 
-init();
+init()
+// MODIFICĂ ACEASTĂ PARTE:
+setTimeout(() => {
+    // Adăugăm m.bg ca al patrulea argument
+    showModal(m.title, m.text, m.img, m.bg); 
+    this.classList.remove('open');
+}, 1000);
