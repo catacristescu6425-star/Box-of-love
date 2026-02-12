@@ -123,8 +123,10 @@ const messages = [
 function init() {
     const calendarGrid = document.getElementById('calendar-grid');
     const anytimeGrid = document.getElementById('anytime-grid');
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    
+    // Obținem data de azi fără ore, minute, secunde
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
 
     messages.forEach(m => {
         const wrapper = document.createElement('div');
@@ -134,10 +136,14 @@ function init() {
         let diffDays = 0;
 
         if (m.date) {
-            const unlockDate = new Date(m.date);
+            // Despărțim string-ul "YYYY-MM-DD" manual pentru a evita interpretarea UTC
+            const parts = m.date.split('-');
+            const unlockDate = new Date(parts[0], parts[1] - 1, parts[2]).getTime();
+
             if (today < unlockDate) {
                 isLocked = true;
                 wrapper.classList.add('locked');
+                // Calculăm diferența de zile
                 diffDays = Math.ceil((unlockDate - today) / (1000 * 60 * 60 * 24));
             }
         }
