@@ -1,6 +1,6 @@
 /* Configurare Generală */
 body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('love.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('valentines.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -172,6 +172,8 @@ h1 {
     justify-content: center;
     text-align: center;
     box-sizing: border-box;
+    /* ADAUGĂ ACEASTĂ LINIE: creează un strat protector pentru text */
+    background: rgba(0, 0, 0, 0.5); 
 }
 
 #modal-body h2 {
@@ -282,5 +284,4 @@ h1 {
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
-
 }
