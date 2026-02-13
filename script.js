@@ -1,12 +1,12 @@
 const messages = [
     { 
-        title: "Data noastră: 13.01.2027", 
+        title: "Data noastră ❤️", 
         date: "2027-01-13", 
         text: "Mesaj pentru 13 ianuarie...", 
         img: "" 
     },
     { 
-        title: "O lună: 13.02.2026 ❤️", 
+        title: "O lună ❤️", 
         date: "2026-02-13", 
         text: `Dragul meu ❤️,
             ​M-am gândit mult cum să pun în cuvinte tot ce s-a adunat în timpul ăsta de când ai apărut în viața mea, chiar dacă perioada pare scurtă. Știi că universul meu e plin de cifre și calcule, dar tu ai venit ca o variabilă neașteptată care mi-a dat toate certitudinile peste cap în cel mai frumos mod posibil. Cine ar fi crezut că o zi de marți 13 va deveni data mea preferată din calendar? 😅🥰
@@ -228,4 +228,5 @@ function launchConfetti() {
 
 window.onclick = (e) => { if (e.target.id === 'message-modal') closeModal(); };
 init();
+
 
