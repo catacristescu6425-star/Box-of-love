@@ -18,12 +18,12 @@ const messages = [
     },
     { 
         title: "Valentine's Day ❤️", 
-        date: "2025-02-14", 
+        date: "2026-02-14", 
         text: `Happy Valentine’s Day! ❤️
-            După mult timp, ziua de 14 februarie are în sfârșit un sens pentru mine și asta ți se datorează în totalitate. De când ai apărut în universul meu plin de cifre și calcule, ai devenit acea variabilă neașteptată care mi-a dat toate certitudinile peste cap, demonstrându-mi că cele mai frumoase lucruri apar exact atunci când nu mai încerci să le programezi. 🤗🥰
-            Îți mulțumesc pentru liniștea pe care mi-o oferi chiar și atunci când lucrurile devin agitate în jurul meu; e incredibil cum reușești să mă calmezi doar prin felul tău de a fi. Apreciez enorm că ești omul care mă face să râd cu poftă exact când sunt mai stresată și care mă provoacă, zi de zi, să fiu o versiune mai curajoasă a mea. Lângă tine am învățat că o conexiune reală nu depinde de simple coordonate geografice, ci de efortul și dorința de a fi prezent în viața celuilalt, indiferent de cât de departe suntem fizic.❤️🥺
-            Sunt extrem de mândră că sunt a ta și de modul matur și frumos în care am învățat să formăm o echipă. Chiar dacă astăzi ne bibilim doar prin mesaje sau pe Discord, tu ești cel care face ca totul să fie special. Abia aștept să ne vedem ca să-ți dau și varianta „palpabilă” a acestui mesaj, plină de bilețele albe și roz pe care le-am pregătit cu atâta drag. Până atunci, amintește-ți că ai în față o teroare căreia îi este nespus de dor de tine și care abia așteaptă să te strângă în brațe și să nu-ți mai dea drumul. 🥰😅
-            Te iubesc și sărut chiar și de la distanță și abia aștept să te strâng în brațe,
+            După mult timp, ziua de 14 februarie are în sfârșit un sens pentru mine și asta ți se datorează în totalitate. De când ai apărut în universul meu plin de cifre și calcule, ai devenit acea variabilă neașteptată care mi-a dat toate certitudinile peste cap, demonstrându-mi că cele mai frumoase lucruri apar exact atunci când nu mai încerci să le programezi. Pe zi ce trece, realizez că locul tău în viața mea devine tot mai stabil și simt cum, fără să îmi dau seama, mă îndrăgostesc de tine tot mai tare cu fiecare conversație, cu fiecare glumă și cu fiecare moment de susținere pe care mi-l oferi. 🤗🥰
+            Îți mulțumesc pentru liniștea pe care mi-o oferi chiar și atunci când lucrurile devin agitate în jurul meu; e incredibil cum reușești să mă calmezi doar prin felul tău de a fi, oferindu-mi siguranța de care aveam nevoie. Apreciez enorm că ești omul care mă face să râd cu poftă exact când sunt mai stresată și care mă provoacă, zi de zi, să fiu o versiune mai curajoasă a mea, lăsând garda jos. Lângă tine am învățat că o conexiune reală nu depinde de simple coordonate geografice, ci de efortul și dorința de a fi prezent în viața celuilalt, indiferent de cât de departe ne aflăm fizic în acest moment. ❤️🥺
+            Sunt extrem de mândră că sunt a ta și de modul matur în care am învățat să formăm o echipă adevărată. Chiar dacă astăzi ne bibilim doar prin mesaje sau pe Discord, tu ești cel care face ca totul să fie special și plin de sens. Până atunci, amintește-ți că ai în față o teroare căreia îi este nespus de dor de tine și care abia așteaptă să te strângă în brațe și să nu-ți mai dea drumul prea curând. 🥰😅
+            Te iubesc din tot sufletul, te sărut chiar și de la distanță și abia aștept momentul în care te voi putea privi în ochi să-ți spun toate astea!
             Bibica ta preferată 🥰💋`, 
         img: "kiss.jpg",
         hearts: true
@@ -261,5 +261,6 @@ function launchConfetti() {
 
 window.onclick = (e) => { if (e.target.id === 'message-modal') closeModal(); };
 init();
+
 
 
