@@ -30,6 +30,20 @@ h1 {
     margin-bottom: 30px;
 }
 
+.intro-text {
+    font-size: 1.1em;
+    font-style: italic;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto 35px auto;
+    color: #fce4ec; 
+    border-left: 4px solid #7d0b0d; 
+    padding: 10px 25px;
+    text-align: left;
+    background: rgba(125, 11, 13, 0.1); 
+    border-radius: 0 15px 15px 0;
+}
+
 .menu-options {
     display: flex;
     flex-direction: column;
@@ -223,4 +237,9 @@ h1 {
     .title-tag { top: 95px; font-size: 12px; }
     #modal-body h2 { font-size: 1.8em; }
     #modal-body p { font-size: 1.1em; }
+    #start-screen .intro-text {
+        font-size: 1em;
+        margin-bottom: 30px;
+        padding-left: 15px;
+    }
 }
