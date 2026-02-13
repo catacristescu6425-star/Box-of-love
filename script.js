@@ -17,7 +17,7 @@ const messages = [
         img: "heart.jpg" 
     },
     { 
-        title: "V-Day: 14.02.2026", 
+        title: "Valentine's Day ❤️", 
         date: "2026-02-14", 
         text: `Happy Valentine’s Day! ❤️
             După mult timp, ziua de 14 februarie are în sfârșit un sens pentru mine și asta ți se datorează în totalitate. De când ai apărut în universul meu plin de cifre și calcule, ai devenit acea variabilă neașteptată care mi-a dat toate certitudinile peste cap, demonstrându-mi că cele mai frumoase lucruri apar exact atunci când nu mai încerci să le programezi. 🤗🥰
@@ -28,7 +28,7 @@ const messages = [
         img: "kiss.jpg"
     },
     { 
-        title: "Happy Birthday 🥳✨: 17.02.2026", 
+        title: "Happy Birthday 🥰🥳✨", 
         date: "2026-02-17", 
         text: `La mulți ani, scumpule! ❤️
             Astăzi este despre tine și despre bucuria că, dintre toate miliardele de variabile din univers, destinul a făcut ca tu să fii cel care îmi dă lumea peste cap. De ziua ta, nu vreau doar să-ți urez „La mulți ani”, ci să-ți mulțumesc pentru simplul fapt că te-ai născut și că ai ales să fii partea cea mai frumoasă din viața mea. În acest timp scurt, mi-ai demonstrat că ești mult mai mult decât un „material de relație”; ești omul care știe să asculte, să protejeze și să aducă echilibru acolo unde eu văd doar haos sau cifre. 😅🥰
@@ -40,7 +40,7 @@ const messages = [
         confetti: true 
     },
     { 
-        title: "Dragobete: 24.02.2026", 
+        title: "Dragobete ❤️", 
         date: "2026-02-24", 
         text: `La mulți ani de Dragobete, scumpule! ❤️
             Chiar dacă tradiția spune că astăzi "Dragobetele sărută fetele", noi am furat startul acum o lună, așa că azi vreau doar să-ți mulțumesc pentru felul în care mă faci să mă simt în fiecare secundă. De când facem echipă, ziua de 24 februarie a căpătat o altă însemnătate, devenind ocazia perfectă să-ți spun cât de mult înseamnă pentru mine liniștea pe care mi-o transmiți. Indiferent de ce facem astăzi, vreau să știi că grija pe care mi-o porți mereu și modul în care reușești să fii prezent, în ciuda oricăror obstacole, reprezintă cel mai frumos cadou pentru mine. 🥰☺️
@@ -51,7 +51,7 @@ const messages = [
         img: "" 
     },
     { 
-        title: "Mărțișor", 
+        title: "Mărțișor ❤️", 
         date: "2026-03-01", 
         text: `La mulți ani de 1 Martie, scumpul meu! ❤️🤍
             M-am gândit mult cum să îți ofer un mărțișor special la început de primăvară, având în vedere că kilometrii ne țin încă departe unul de celălalt. Știu că în alte zone ale țării băieții oferă mărțișoare fetelor, însă aici în Bucovina, la Suceava, fetele sunt cele care dăruiesc mărțișorul celor dragi. Așa că te rog să îl primești pe acesta, chiar dacă momentan este doar virtual, ca pe o bucățică din sufletul meu și ca pe un simbol al tot ceea ce am început să construim împreună. 🥰❤️
@@ -228,3 +228,4 @@ function launchConfetti() {
 
 window.onclick = (e) => { if (e.target.id === 'message-modal') closeModal(); };
 init();
+
