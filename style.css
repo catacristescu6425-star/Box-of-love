@@ -37,8 +37,8 @@ h1 {
     max-width: 700px;
     margin: 0 auto 35px auto;
     color: #fce4ec; 
-    border-left: 4px solid #7d0b0d; 
     padding: 10px 25px;
+    border-left: none; /* Ștergem linia din stânga pentru a permite centrarea */
     text-align: center;
     background: rgba(125, 11, 13, 0.1); 
     border-radius: 0 15px 15px 0;
@@ -243,4 +243,5 @@ h1 {
         padding-left: 15px;
     }
 }
+
 
