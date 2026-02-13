@@ -228,6 +228,31 @@ h1 {
     z-index: 1001;
 }
 
+@keyframes heartFloat {
+    0% {
+        transform: translateY(0) scale(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+        transform: translateY(-20vh) scale(1.2);
+    }
+    100% {
+        transform: translateY(-90vh) scale(1);
+        opacity: 0;
+    }
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: 0;
+    color: #ff69b4; /* Roz de Valentine's */
+    font-size: 25px;
+    pointer-events: none;
+    z-index: 1002; /* Peste conținutul modalului */
+    animation: heartFloat 4s ease-in forwards;
+}
+
 /* Mobil */
 @media (max-width: 600px) {
     .grid { gap: 80px 20px; }
@@ -243,5 +268,3 @@ h1 {
         padding-left: 15px;
     }
 }
-
-
