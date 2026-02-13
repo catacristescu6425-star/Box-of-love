@@ -122,11 +122,27 @@ const messages = [
     },
 ];
 
+// NAVIGARE MENIU
+function showSection(type) {
+    document.getElementById('start-screen').style.display = 'none';
+    if (type === 'calendar') {
+        document.getElementById('calendar-section').style.display = 'block';
+    } else {
+        document.getElementById('anytime-section').style.display = 'block';
+    }
+}
+
+function showStart() {
+    document.getElementById('calendar-section').style.display = 'none';
+    document.getElementById('anytime-section').style.display = 'none';
+    document.getElementById('start-screen').style.display = 'block';
+}
+
 function init() {
     const calendarGrid = document.getElementById('calendar-grid');
     const anytimeGrid = document.getElementById('anytime-grid');
     
-    // Obținem data de azi fără ore, minute, secunde
+    // Corecție dată locală
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
 
@@ -138,14 +154,12 @@ function init() {
         let diffDays = 0;
 
         if (m.date) {
-            // Despărțim string-ul "YYYY-MM-DD" manual pentru a evita interpretarea UTC
             const parts = m.date.split('-');
             const unlockDate = new Date(parts[0], parts[1] - 1, parts[2]).getTime();
 
             if (today < unlockDate) {
                 isLocked = true;
                 wrapper.classList.add('locked');
-                // Calculăm diferența de zile
                 diffDays = Math.ceil((unlockDate - today) / (1000 * 60 * 60 * 24));
             }
         }
@@ -162,11 +176,9 @@ function init() {
                 showModal("Mai trebuie să aștepți puțin...", `Plicul se va deschide peste ${diffDays} zile.`, null);
             } else {
                 this.classList.add('open');
-                if (m.confetti && typeof confetti === "function") {
-                    launchConfetti();
-                }
+                if (m.confetti && typeof confetti === "function") launchConfetti();
                 setTimeout(() => {
-                    showModal(m.title, m.text, m.img);
+                    showModal(m.title, m.text, m.img, m.bg);
                     this.classList.remove('open');
                 }, 1000);
             }
@@ -181,46 +193,38 @@ function showModal(title, text, img, bg) {
     const modal = document.getElementById('message-modal');
     const body = document.getElementById('modal-body');
     
-    // Verificăm dacă există un fundal specific, altfel punem fundalul general
+    // Fundal dinamic pentru modal
     const backgroundToShow = bg ? bg : 'valentines.jpg'; 
-    
     modal.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('${backgroundToShow}')`;
     modal.style.backgroundSize = "cover";
     modal.style.backgroundPosition = "center";
-    modal.style.backgroundAttachment = "fixed"; // Păstrează fundalul fix ca în restul paginii
+    modal.style.backgroundAttachment = "fixed";
 
-    // Restul codului rămâne neschimbat...
-    let content = `<h2>${title}</h2><p style="white-space: pre-line; margin-bottom: 20px;">${text}</p>`;
+    let content = `<h2>${title}</h2><p>${text}</p>`;
 
     if (img && img.toLowerCase().endsWith('.mp4')) {
-        content += `
-            <div style="width: 100%; display: flex; justify-content: center;">
-                <video id="main-video" width="90%" style="max-height: 55vh; border-radius: 15px; border: 2px solid #b30000;" controls autoplay muted playsinline>
-                    <source src="${img}" type="video/mp4">
-                </video>
-            </div>`;
+        content += `<div style="width:100%; display:flex; justify-content:center;">
+            <video id="main-video" width="90%" style="max-height:55vh; border-radius:15px; border:2px solid #b30000;" controls autoplay muted playsinline>
+                <source src="${img}" type="video/mp4">
+            </video></div>`;
     } else if (img) {
-        content += `<img src="${img}" style="max-width: 90%; max-height: 55vh; border: 2px solid #b30000; border-radius: 15px;">`;
+        content += `<img src="${img}" style="max-width:90%; max-height:55vh; border:2px solid #b30000; border-radius:15px;">`;
     }
     
     body.innerHTML = content;
     modal.style.display = "block";
-    modal.scrollTop = 0;
 }
 
 function closeModal() {
     const modal = document.getElementById('message-modal');
     const video = document.getElementById('main-video');
-    if (video) { video.pause(); video.src = ""; video.load(); }
+    if (video) { video.pause(); video.src = ""; }
     modal.style.display = "none";
 }
-
-document.querySelector('.close').onclick = closeModal;
-window.onclick = (e) => { if (e.target.id === 'message-modal') closeModal(); };
 
 function launchConfetti() {
     confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#ff0000', '#d4436a', '#ffffff'] });
 }
 
+window.onclick = (e) => { if (e.target.id === 'message-modal') closeModal(); };
 init();
-
