@@ -18,14 +18,15 @@ const messages = [
     },
     { 
         title: "Valentine's Day ❤️", 
-        date: "2026-02-14", 
+        date: "2025-02-14", 
         text: `Happy Valentine’s Day! ❤️
             După mult timp, ziua de 14 februarie are în sfârșit un sens pentru mine și asta ți se datorează în totalitate. De când ai apărut în universul meu plin de cifre și calcule, ai devenit acea variabilă neașteptată care mi-a dat toate certitudinile peste cap, demonstrându-mi că cele mai frumoase lucruri apar exact atunci când nu mai încerci să le programezi. 🤗🥰
             Îți mulțumesc pentru liniștea pe care mi-o oferi chiar și atunci când lucrurile devin agitate în jurul meu; e incredibil cum reușești să mă calmezi doar prin felul tău de a fi. Apreciez enorm că ești omul care mă face să râd cu poftă exact când sunt mai stresată și care mă provoacă, zi de zi, să fiu o versiune mai curajoasă a mea. Lângă tine am învățat că o conexiune reală nu depinde de simple coordonate geografice, ci de efortul și dorința de a fi prezent în viața celuilalt, indiferent de cât de departe suntem fizic.❤️🥺
             Sunt extrem de mândră că sunt a ta și de modul matur și frumos în care am învățat să formăm o echipă. Chiar dacă astăzi ne bibilim doar prin mesaje sau pe Discord, tu ești cel care face ca totul să fie special. Abia aștept să ne vedem ca să-ți dau și varianta „palpabilă” a acestui mesaj, plină de bilețele albe și roz pe care le-am pregătit cu atâta drag. Până atunci, amintește-ți că ai în față o teroare căreia îi este nespus de dor de tine și care abia așteaptă să te strângă în brațe și să nu-ți mai dea drumul. 🥰😅
             Te iubesc și sărut chiar și de la distanță și abia aștept să te strâng în brațe,
             Bibica ta preferată 🥰💋`, 
-        img: "kiss.jpg"
+        img: "kiss.jpg",
+        hearts: true
     },
     { 
         title: "Happy Birthday 🥰🥳✨", 
@@ -48,7 +49,8 @@ const messages = [
             Să avem o zi plină de liniște, fix așa cum este legătura noastră, și să ne bucurăm de tot ce am reușit să construim frumos în acest timp. Sunt mândră de tine și de felul în care știi să fii bărbatul protector care îmi oferă mereu motive să privesc spre viitor cu încredere. Până când ne vom vedea și vom recupera toate îmbrățișările de care ne-a lipsit distanța, amintește-ți că inima mea e acolo cu tine. 
             Te iubesc și sărut chiar și de la distanță și abia aștept să te strâng în brațe,
             Bibica ta preferată 🥰💋`, 
-        img: "" 
+        img: "",
+        hearts: true
     },
     { 
         title: "Mărțișor ❤️", 
@@ -138,6 +140,32 @@ function showStart() {
     document.getElementById('start-screen').style.display = 'block';
 }
 
+function createHeartsInModal() {
+    const modalContent = document.querySelector('.modal-content');
+    
+    // Generăm 25 de inimi la intervale mici
+    for (let i = 0; i < 25; i++) {
+        setTimeout(() => {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.innerHTML = '❤️';
+            
+            // Poziționare aleatorie pe lățime
+            heart.style.left = Math.random() * 80 + 10 + '%'; 
+            
+            // Durată și mărime ușor diferite pentru realism
+            const duration = 3 + Math.random() * 2;
+            heart.style.animationDuration = duration + 's';
+            heart.style.fontSize = (15 + Math.random() * 20) + 'px';
+            
+            modalContent.appendChild(heart);
+            
+            // Ștergem inima din memorie după ce termină animația
+            setTimeout(() => heart.remove(), duration * 1000);
+        }, i * 200);
+    }
+}
+
 function init() {
     const calendarGrid = document.getElementById('calendar-grid');
     const anytimeGrid = document.getElementById('anytime-grid');
@@ -177,8 +205,13 @@ function init() {
             } else {
                 this.classList.add('open');
                 if (m.confetti && typeof confetti === "function") launchConfetti();
+                // În interiorul init(), în blocul else al lui wrapper.onclick:
                 setTimeout(() => {
                     showModal(m.title, m.text, m.img, m.bg);
+                    // Dacă mesajul are proprietatea hearts, pornim inimele în fereastră
+                    if (m.hearts) {
+                        createHeartsInModal();
+                    }
                     this.classList.remove('open');
                 }, 1000);
             }
