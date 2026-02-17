@@ -34,7 +34,7 @@ const messages = [
         text: `La mulți ani, scumpule! ❤️
             Astăzi este despre tine și despre bucuria că, dintre toate miliardele de variabile din univers, destinul a făcut ca tu să fii cel care îmi dă lumea peste cap. De ziua ta, nu vreau doar să-ți urez „La mulți ani”, ci să-ți mulțumesc pentru simplul fapt că te-ai născut și că ai ales să fii partea cea mai frumoasă din viața mea. În acest timp scurt, mi-ai demonstrat că ești mult mai mult decât un „material de relație”; ești omul care știe să asculte, să protejeze și să aducă echilibru acolo unde eu văd doar haos sau cifre. 😅🥰
             Îți mulțumesc pentru răbdarea cu care mă asculți și pentru felul în care mă faci să mă simt în siguranță, chiar și atunci când ne despart sute de kilometri. Apreciez enorm siguranța pe care mi-o transmiți și modul în care reușești să mă provoci să fiu mai asumată, învățându-mă că în doi nicio problemă nu e prea greu de rezolvat. Sper ca anul acesta să fie exact așa cum ești tu: plin de realizări, de momente care să te facă să strigi de bucurie (la propriu sau la figurat) și de amintiri pe care să le construim împreună, pas cu pas. 🥰❤️
-            Sunt extrem de mândră de bărbatul care ești și de tot ce am descoperit la tine până acum. Chiar dacă astăzi sărbătorim prin ecrane, inima mea este acolo cu tine și abia aștept momentul în care o să recuperăm fiecare secundă de distanță. Până când ne vom vedea și îți voi putea da toate cadourile „palpabile” pe care le-am pregătit cu atâta grijă, amintește-ți că ai lângă tine o teroare care te admiră enorm și care vrea să-ți fie alături în toate aventurile ce urmează. 🥰😅
+            Sunt extrem de mândră de bărbatul care ești și de tot ce am descoperit la tine până acum. Chiar dacă astăzi sărbătorim prin ecrane, inima mea este acolo cu tine și abia aștept momentul în care o să recuperăm fiecare secundă de distanță. Până când ne vom vedea, amintește-ți că ai lângă tine o teroare care te admiră enorm și care vrea să-ți fie alături în toate aventurile ce urmează. 🥰😅
             Te iubesc și sărut chiar și de la distanță și abia aștept să te strâng în brațe,
             Bibica ta preferată 🥰💋`, 
         img: "happy.jpg",
@@ -261,6 +261,7 @@ function launchConfetti() {
 
 window.onclick = (e) => { if (e.target.id === 'message-modal') closeModal(); };
 init();
+
 
 
 
